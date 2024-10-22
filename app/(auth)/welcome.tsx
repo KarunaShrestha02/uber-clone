@@ -7,6 +7,7 @@ import { View } from "react-native-reanimated/lib/typescript/Animated";
 import { useRef } from "react";
 const OnBoarding= () => {
     const swiperRef= useRef<Swiper>(null);
+    const [activeIndex, setActiveIndex]= useState(0);
     return(
         <SafeAreaView className="flex h-full items-center justfy-between bg-white">
             <TouchableOpacity 
@@ -20,8 +21,12 @@ const OnBoarding= () => {
             </TouchableOpacity>
             <Swiper  ref={swiperRef}
             loop={false}>
-dot={<View className="w-[32px] h-[4px] mx-1 bg-[#E2E8F0]"> </View>}
+dot={<View className="w-[32px] h-[4px] mx-1 bg-[#E2E8F0] rounded-full"> </View>}
+activeDot={<View className="w-[32px] h-[4px] mx-1 bg-[#0286FF] rounded-full"> </View>}
+onIndexChanged= {(index) => setActiveIndex(index)}
+
             </Swiper>
+            
             </SafeAreaView>
         
        
